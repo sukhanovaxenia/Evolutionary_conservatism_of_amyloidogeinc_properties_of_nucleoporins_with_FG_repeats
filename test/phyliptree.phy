@@ -1,0 +1,475 @@
+(
+'Fonticula alba':4,
+'Capsaspora owczarzaki':4,
+(
+'Salpingoeca rosetta':4,
+'Monosiga brevicollis':4
+)Craspedida:4,
+(
+'Amphimedon queenslandica':4,
+'Mnemiopsis leidyi':4,
+'Trichoplax adhaerens':4,
+'Saccoglossus kowalevskii':4,
+(
+(
+'Python bivittatus':4,
+'Anolis carolinensis':4
+)Squamata:4,
+(
+'Galeopterus variegatus':4,
+'Tupaia chinensis':4,
+'Chrysochloris asiatica':4,
+'Elephantulus edwardii':4,
+'Monodelphis domestica':4,
+(
+'Nannospalax galili':4,
+'Fukomys damarensis':4,
+'Microtus ochrogaster':4,
+'Jaculus jaculus':4,
+'Ictidomys tridecemlineatus':4,
+'Chinchilla lanigera':4,
+'Heterocephalus glaber':4,
+'Octodon degus':4,
+'Cavia porcellus':4,
+'Rattus norvegicus':4,
+'Mus musculus':4,
+'Peromyscus maniculatus':4,
+'Mesocricetus auratus':4,
+'Cricetulus griseus':4
+)Rodentia:4,
+(
+'Oryctolagus cuniculus':4,
+'Ochotona princeps':4
+)Lagomorpha:4,
+'Orycteropus afer':4,
+'Loxodonta africana':4,
+'Trichechus manatus':4,
+(
+'Lipotes vexillifer':4,
+'Bubalus bubalis':4,
+'Bos mutus':4,
+'Pantholops hodgsonii':4,
+'Ovis aries':4,
+'Bos taurus':4,
+'Sus scrofa':4,
+'Balaenoptera acutorostrata':4,
+'Tursiops truncatus':4,
+'Orcinus orca':4
+)Artiodactyla:4,
+(
+'Ursus maritimus':4,
+'Leptonychotes weddellii':4,
+'Odobenus rosmarus':4,
+'Panthera tigris':4,
+'Felis catus':4,
+'Mustela putorius':4,
+'Ailuropoda melanoleuca':4,
+'Canis lupus':4
+)Carnivora:4,
+(
+'Nomascus leucogenys':4,
+'Rhinopithecus roxellana':4,
+'Chlorocebus sabaeus':4,
+'Otolemur garnettii':4,
+'Saimiri boliviensis':4,
+'Homo sapiens':4,
+'Pongo abelii':4,
+'Pan troglodytes':4,
+'Pan paniscus':4,
+'Gorilla gorilla':4,
+'Papio anubis':4,
+'Macaca mulatta':4,
+'Macaca fascicularis':4,
+'Callithrix jacchus':4,
+'Carlito syrichta':4
+)Primates:4,
+(
+'Myotis davidii':4,
+'Pteropus vampyrus':4,
+'Myotis brandtii':4,
+'Myotis lucifugus':4,
+'Eptesicus fuscus':4,
+'Pteropus alecto':4
+)Chiroptera:4,
+'Echinops telfairi':4,
+(
+'Sorex araneus':4,
+'Erinaceus europaeus':4
+)Eulipotyphla:4,
+'Dasypus novemcinctus':4,
+'Notamacropus eugenii':4,
+'Sarcophilus harrisii':4,
+'Ornithorhynchus anatinus':4
+)Mammalia:4,
+(
+'Nipponia nippon':4,
+(
+'Pseudopodoces humilis':4,
+'Ficedula albicollis':4
+)Passeriformes:4,
+'Haliaeetus leucocephalus':4,
+'Gallus gallus':4,
+'Columba livia':4
+)Aves:4,
+(
+'Alligator sinensis':4,
+'Alligator mississippiensis':4
+)Crocodylia:4,
+(
+'Pelodiscus sinensis':4,
+'Chrysemys picta':4,
+'Chelonia mydas':4
+)Testudines:4,
+'Xenopus tropicalis':4,
+(
+'Cynoglossus semilaevis':4,
+'Larimichthys crocea':4,
+'Stegastes partitus':4,
+'Gasterosteus aculeatus':4,
+'Takifugu rubripes':4,
+(
+'Pundamilia nyererei':4,
+'Maylandia zebra':4,
+'Neolamprologus brichardi':4,
+'Haplochromis burtoni':4,
+'Oreochromis niloticus':4
+)Cichliformes:4,
+'Oryzias latipes':4,
+(
+'Poecilia formosa':4,
+'Xiphophorus maculatus':4,
+'Poecilia reticulata':4
+)Cyprinodontiformes:4,
+'Gadus morhua':4,
+'Esox lucius':4,
+'Astyanax mexicanus':4,
+'Danio rerio':4,
+'Lepisosteus oculatus':4
+)Actinopteri:4,
+'Latimeria chalumnae':4,
+'Branchiostoma floridae':4,
+(
+'Ciona savignyi':4,
+'Ciona intestinalis':4
+)Phlebobranchia:4
+)Chordata:4,
+'Strongylocentrotus purpuratus':4,
+(
+'Strigamia maritima':4,
+'Tetranychus urticae':4,
+(
+'Zootermopsis nevadensis':4,
+'Pediculus humanus':4,
+(
+'Heliconius melpomene':4,
+'Danaus plexippus':4
+)Lepidoptera:4,
+(
+'Bombus impatiens':4,
+'Acromyrmex echinatior':4,
+'Microplitis demolitor':4,
+'Atta cephalotes':4,
+'Apis mellifera':4,
+'Nasonia vitripennis':4
+)Hymenoptera:4,
+(
+'Anopheles darlingi':4,
+'Musca domestica':4,
+'Drosophila willistoni':4,
+'Drosophila yakuba':4,
+'Drosophila virilis':4,
+'Drosophila pseudoobscura':4,
+'Drosophila persimilis':4,
+'Drosophila mojavensis':4,
+'Drosophila melanogaster':4,
+'Drosophila grimshawi':4,
+'Drosophila erecta':4,
+'Drosophila ananassae':4,
+'Ceratitis capitata':4,
+'Culex quinquefasciatus':4,
+'Anopheles gambiae':4,
+'Aedes aegypti':4
+)Diptera:4,
+'Tribolium castaneum':4,
+(
+'Rhodnius prolixus':4,
+'Acyrthosiphon pisum':4
+)Hemiptera:4
+)Insecta:4,
+'Daphnia pulex':4
+)Arthropoda:4,
+'Aplysia californica':4,
+'Helobdella robusta':4,
+(
+'Trichinella spiralis':4,
+(
+'Caenorhabditis tropicalis':4,
+'Caenorhabditis japonica':4,
+'Caenorhabditis brenneri':4,
+'Strongyloides ratti':4,
+'Caenorhabditis remanei':4,
+'Loa loa':4,
+'Bursaphelenchus xylophilus':4,
+'Caenorhabditis elegans':4,
+'Caenorhabditis briggsae':4
+)Rhabditida:4
+)Nematoda:4,
+(
+'Echinococcus multilocularis':4,
+'Schistosoma mansoni':4
+)Platyhelminthes:4,
+(
+'Nematostella vectensis':4,
+'Hydra vulgaris':4
+)Cnidaria:4
+)Metazoa:4,
+(
+(
+'Batrachochytrium dendrobatidis':4,
+'Spizellomyces punctatus':4
+)Chytridiomycetes:4,
+(
+'Rhizophagus irregularis':4,
+'Podila verticillata':4,
+(
+'Rhizopus delemar':4,
+'Mucor circinelloides':4
+)Mucorales:4
+)Mucoromycota:4,
+'Allomyces macrogynus':4,
+(
+(
+'Wallemia ichthyophaga':4,
+'Wallemia sebi':4
+)Wallemiales:4,
+'Mixia osmundae':4,
+(
+'Fomitiporia mediterranea':4,
+'Punctularia strigosozonata':4,
+'Auricularia delicata':4,
+'Gloeophyllum trabeum':4,
+(
+'Serpula lacrymans':4,
+'Coniophora puteana':4
+)Boletales:4,
+'Serendipita indica':4,
+(
+'Heterobasidion irregulare':4,
+'Stereum hirsutum':4
+)Russulales:4,
+'Fomitopsis pinicola':4,
+(
+'Moniliophthora roreri':4,
+'Coprinopsis cinerea':4,
+'Agaricus bisporus':4,
+'Schizophyllum commune':4
+)Agaricales:4
+)Agaricomycetes:4,
+'Puccinia graminis':4,
+'Rhodotorula toruloides':4,
+(
+'Kalmanozyma brasiliensis':4,
+'Pseudozyma hubeiensis':4,
+'Ustilago hordei':4,
+'Anthracocystis flocculosa':4,
+'Sporisorium reilianum':4,
+'Ustilago maydis':4
+)Ustilaginales:4,
+(
+'Trichosporon asahii':4,
+(
+'Cryptococcus gattii VGIII':4,
+'Tremella mesenterica':4,
+'Cryptococcus neoformans':4
+)Tremellales:4
+)Tremellomycetes:4
+)Basidiomycota:4,
+(
+(
+'Pneumocystis murina':4,
+'Pneumocystis jirovecii':4
+)Pneumocystidales:4,
+(
+'Pyronema omphalodes':4,
+'Tuber melanosporum':4
+)Pezizales:4,
+(
+'Dactylellina haptotyla':4,
+'Orbilia oligospora':4
+)Orbiliales:4,
+(
+'Pseudogymnoascus destructans':4,
+'Blumeria graminis':4,
+(
+'Marssonina brunnea':4,
+'Glarea lozoyensis':4,
+'Botrytis cinerea':4,
+'Sclerotinia sclerotiorum':4
+)Helotiales:4
+)Leotiomycetes:4,
+(
+'Phaeoacremonium minimum':4,
+(
+'Pestalotiopsis fici':4,
+'Eutypa lata':4
+)Xylariales:4,
+(
+'Grosmannia clavigera':4,
+'Ophiostoma piceae':4,
+'Sporothrix schenckii':4
+)Ophiostomatales:4,
+(
+'Pyricularia oryzae':4,
+'Magnaporthiopsis poae':4,
+'Gaeumannomyces graminis':4
+)Magnaporthales:4,
+(
+'Colletotrichum sublineola':4,
+'Verticillium alfalfae':4,
+'Colletotrichum fioriniae':4,
+'Colletotrichum gloeosporioides':4,
+'Colletotrichum higginsianum':4,
+'Colletotrichum graminicola':4,
+'Verticillium dahliae':4,
+'Colletotrichum orbiculare':4
+)Glomerellales:4,
+(
+'Chaetomium thermophilum':4,
+'Thermothelomyces thermophilus':4,
+'Neurospora tetrasperma':4,
+'Chaetomium globosum':4,
+'Thermothielavioides terrestris':4,
+'Sordaria macrospora':4,
+'Podospora anserina':4,
+'Neurospora crassa':4
+)Sordariales:4,
+(
+'Metarhizium robertsii':4,
+'Beauveria bassiana':4,
+'Fusarium solani':4,
+'Fusarium verticillioides':4,
+'Fusarium pseudograminearum':4,
+'Metarhizium acridum':4,
+'Cordyceps militaris':4,
+'Ophiocordyceps sinensis':4,
+'Trichoderma atroviride':4,
+'Trichoderma reesei':4,
+'Trichoderma virens':4,
+'Fusarium graminearum':4,
+'Fusarium oxysporum':4,
+'Fusarium fujikuroi':4,
+'Claviceps purpurea':4
+)Hypocreales:4
+)Sordariomycetes:4,
+(
+'Endocarpon pusillum':4,
+(
+'Cladophialophora psammophila':4,
+'Cladophialophora yegresii':4,
+'Cyphellophora europaea':4,
+'Cladophialophora carrionii':4,
+'Capronia coronata':4,
+'Capronia epimyces':4,
+'Exophiala dermatitidis':4
+)Chaetothyriales:4,
+(
+'Penicillium rubens':4,
+'Aspergillus fumigatus':4,
+'Byssochlamys spectabilis':4,
+'Aspergillus nidulans':4,
+'Penicillium oxalicum':4,
+'Aspergillus luchuensis':4,
+'Talaromyces marneffei':4,
+'Penicillium digitatum':4,
+'Aspergillus fischeri':4,
+'Aspergillus terreus':4,
+'Talaromyces stipitatus':4,
+'Aspergillus oryzae':4,
+'Aspergillus niger':4,
+'Aspergillus flavus':4,
+'Aspergillus clavatus':4
+)Eurotiales:4,
+(
+'Paracoccidioides lutzii':4,
+'Coccidioides posadasii':4,
+'Paracoccidioides brasiliensis':4,
+'Trichophyton equinum':4,
+'Microsporum canis':4,
+'Nannizzia gypsea':4,
+'Trichophyton benhamiae':4,
+'Uncinocarpus reesii':4,
+'Trichophyton rubrum':4,
+'Coccidioides immitis':4,
+'Blastomyces dermatitidis':4,
+'Histoplasma capsulatum':4
+)Onygenales:4
+)Eurotiomycetes:4,
+(
+(
+'Zymoseptoria tritici':4,
+'Baudoinia compniacensis':4,
+'Sphaerulina musiva':4,
+'Pseudocercospora fijiensis':4,
+'Dothistroma septosporum':4
+)Mycosphaerellales:4,
+'Coniosporium apollinis':4,
+(
+'Neofusicoccum parvum':4,
+'Macrophomina phaseolina':4
+)Botryosphaeriales:4,
+(
+'Bipolaris oryzae':4,
+'Exserohilum turcicum':4,
+'Pyrenophora teres':4,
+'Pyrenophora tritici-repentis':4,
+'Bipolaris sorokiniana':4,
+'Parastagonospora nodorum':4,
+'Leptosphaeria maculans':4,
+'Bipolaris zeicola':4,
+'Bipolaris maydis':4
+)Pleosporales:4
+)Dothideomycetes:4,
+'Taphrina deformans':4,
+(
+'Tetrapisispora blattae':4,
+'Wickerhamomyces ciferrii':4,
+'Ogataea parapolymorpha':4,
+'Kazachstania naganishii':4,
+'Kazachstania africana':4,
+'Lachancea thermotolerans':4,
+'Spathaspora passalidarum':4,
+'Candida orthopsilosis':4,
+'Tetrapisispora phaffii':4,
+'Eremothecium cymbalariae':4,
+'Candida dubliniensis':4,
+'Lodderomyces elongisporus':4,
+'Vanderwaltozyma polyspora':4,
+'Eremothecium gossypii':4,
+'Kluyveromyces lactis':4,
+'Naumovozyma dairenensis':4,
+'Naumovozyma castellii':4,
+'Candida tropicalis':4,
+'Candida parapsilosis':4,
+'Candida maltosa':4,
+'[Candida] glabrata':4,
+'Candida albicans':4,
+'Debaryomyces hansenii':4,
+'Zygosaccharomyces rouxii':4,
+'Yarrowia lipolytica':4,
+'Torulaspora delbrueckii':4,
+'Saccharomyces cerevisiae':4,
+'Meyerozyma guilliermondii':4,
+'Scheffersomyces stipitis':4,
+'Komagataella pastoris':4,
+'Millerozyma farinosa':4,
+'Pichia kudriavzevii':4
+)Saccharomycetales:4,
+(
+'Schizosaccharomyces cryophilus':4,
+'Schizosaccharomyces octosporus':4,
+'Schizosaccharomyces japonicus':4,
+'Schizosaccharomyces pombe':4
+)Schizosaccharomycetales:4
+)Ascomycota:4
+)Fungi:4
+)root;

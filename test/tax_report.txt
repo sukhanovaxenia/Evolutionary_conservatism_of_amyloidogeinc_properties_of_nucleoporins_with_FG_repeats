@@ -1,0 +1,21 @@
+
+code|taxid|primary taxid|taxname
+1|1041607|1041607|Wickerhamomyces ciferrii
+1|1071379|1071379|Tetrapisispora blattae
+1|113608|113608|Tetrapisispora phaffii
+1|27289|27289|Naumovozyma dairenensis
+1|28985|28985|Kluyveromyces lactis
+1|33169|33169|Eremothecium gossypii
+1|36033|36033|Vanderwaltozyma polyspora
+1|381046|381046|Lachancea thermotolerans
+1|432096|432096|Kazachstania africana
+1|45285|45285|Eremothecium cymbalariae
+1|4920|4920|Millerozyma farinosa
+1|4920|4920|Millerozyma farinosa
+1|4922|4922|Komagataella pastoris
+1|4932|4932|Saccharomyces cerevisiae
+1|4950|4950|Torulaspora delbrueckii
+1|4956|4956|Zygosaccharomyces rouxii
+1|5478|5478|[Candida] glabrata
+1|5480|5480|Candida parapsilosis
+1|588726|588726|Kazachstania naganishii
