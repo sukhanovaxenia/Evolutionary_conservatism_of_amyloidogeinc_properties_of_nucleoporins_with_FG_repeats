@@ -4,17 +4,18 @@ This repository includes used in the research work .R scripts and testing files.
 Scripts:
 get_ID - this script allows to get IDs of all orthologs sequences in the input alignment, the output format - .txt
 
-Parse_NCBI_taxonomy_v2 - this python script is used to get the taxonomy table. !NB: is should be filled up by hand if for some specieces there is no taxonomy position according to the NCBI database
-*phyliptree.phy can be loaded using taxid.txt (fisrt script) from the link:https://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi
+Parse_NCBI_taxonomy_v2 - this python script is used to get the taxonomy table. 
+**!NB: it should be filled up by hand, if for some specieces there is no taxonomy position according to the NCBI database
+**phyliptree.phy can be loaded using taxid.txt (fisrt script) from the link:https://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi
 **!NB: only kingdom, phylum, class, order, species should be chosen
 
 tax_ID - this script is used to match full filled taxonomy (filling is made by hand) with sequences' IDs (without taxonomy IDs)
 
 tax_ID_short - the shorter and faster script as the previous one
-*tax_report.txt is loaded using taxid.txt from the resource: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
+**tax_report.txt is loaded using taxid.txt from the resource: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
 
 ID_to_species_short_script - is used to change sequences' IDs into species names
-*this script isn't obligatory, however was necessary for the manual check of the sequences' quality and tree creation
+**this script isn't obligatory, however was necessary for the manual check of the sequences' quality and tree creation
 
 filter_plus_alignment - this script includes the function to filter our sequences according to criterias and make automatical MUSCLE alignment
 
