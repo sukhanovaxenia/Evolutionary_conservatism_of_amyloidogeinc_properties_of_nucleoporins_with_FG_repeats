@@ -30,3 +30,5 @@ CumScores.tsv, *_opisto_ortho.fa, *_nog_orthologs.txt, result_table_all.tsv, tax
 str_function - this script allows to reccordinate structure domain coordinates according to each sample alignment and build new plots with painted structure domains
 
 tree_creation - this script is used to build phylums trees and get taxonomy statistics of potential amyloids for kingdom, phylum and class
+
+nwk_tree_from_table_nsp1 - this script builds trees and count statistics for phylums and also separetly for metazoa and fungi, was used for Nsp1.
