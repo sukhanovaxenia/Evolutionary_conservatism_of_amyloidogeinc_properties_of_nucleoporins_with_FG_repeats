@@ -1,5 +1,5 @@
 setwd('/media/DATA/Department/laboratory/students/Xeniya/nucleoporins/Nsp1_ncbi_trees')
-
+This script allows to build trees for phylum and also separetly for fungi and metazoa - in this research the latter was used for Nsp1.
 library(ape)
 #Загружаем таблицу со всеми данными
 tax<-read.table(file='table_base_ID.tsv', sep='\t', header = T)
