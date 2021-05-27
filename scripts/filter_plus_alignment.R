@@ -33,9 +33,7 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
       df[i,4]<-tax_rep[i,2]
     }
   }
-  #df$seq_name<-paste(df$species, df$seq_name, sep = '|')
-  #df<-df[,-4]
-  print(str(df))
+  
   #Создаем файл для фильтрации (опционально):
   #sequences<-as.list(as.character(df$sequence))
   #name<-as.list(as.character(paste(df$species, df$seq_name, sep=".")))
@@ -103,4 +101,4 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
 #filtered = 'NSP1_filt.fa',
 #filtered_noname = 'NSP1_filt_noname.fa',
 #outputpath = 'NSP1_ali_R.fa',
-#outputpath_noname = 'NSP1_ali_noname_R.fa'
+#outputpath_noname = 'NSP1_ali_noname_R.fa')
