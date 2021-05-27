@@ -1,4 +1,4 @@
-# Evolutionary_conservatism_of_amyloidogeinc_properties_of_nucleoporins_with_FR_repeats
+# Evolutionary_conservatism_of_amyloidogeinc_properties_of_nucleoporins_with_FG_repeats
 This repository includes used in the research work .R scripts and testing files.
 All scripts were designed for R version 4.0.5 (2021-03-31) and RStudio version 1.4.1106.
 
