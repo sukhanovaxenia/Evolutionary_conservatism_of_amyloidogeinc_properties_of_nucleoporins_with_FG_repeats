@@ -12,7 +12,7 @@ library(stringr)
 ##amino acid composition including gaps' composition;
 ##amyloidogenicy;
 ##amino acid conservatism
-CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(pattern = 'CumScores.tsv'), taxonomy =dir(pattern = 'result_table_all.tsv'), id = dir(pattern='*_nog_orthologs.txt'), cs_output ='CS_subset.tsv', PA_output ='Report_table.tsv', aa_stat ='AA_plot.pdf', summary = 'Summary_stat.tsv', cs_stat_comp = 'CS_comp_plot.pdf', summary_wNA = 'Summary_wNA.tsv', comp = 'Comparison_cs.tsv'){
+CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(pattern = 'CumScores.tsv'), taxonomy =dir(pattern = 'result_table_all.tsv'), id = dir(pattern='*_nog_orthologs.txt'), cs_output ='CS_subset.tsv', PA_output ='Report_table.tsv', aa_stat ='AA_plot.pdf',aa_stat_wNA = 'AA_plot_wNA.pdf', summary = 'Summary_stat.tsv', cs_stat_comp = 'CS_comp_plot.pdf', summary_wNA = 'Summary_wNA.tsv', comp = 'Comparison_cs.tsv'){
 ## alignment - all previously gotten alignment for each repetition are taken by this function;
 ## cumsore - gotten by ArchCandy umulative scores for each sequence in the default orthologs' dataset (one for all repetitions)
 ## taxonomy - right taxonomy gotten from NCBI db for the orthologs' subset (one for all repetitions)
@@ -20,6 +20,7 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
 ## cs_output - cumulative scores for each repetitions;
 ## PA_output - number of amyloidogenic sequences for big taxonomy groups of each repetition
 ## aa_stat - plots of analyzed parametres for each position in each repetition
+## aa_stat_wNA - plots of analyzed parametres for each position in each repetition, ncluding NAs
 ## summary - summary of analyzed parametres for subsets withot NAs
 ## CS_comp_plot - comparison plots of amyloidogenicy with and without gaps for each repetition
 ## summary_wNA - summary of parametres for subsets with NAs  
@@ -126,9 +127,7 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
   
   
   #AA_statistics with amyloidogenicy:
-  ali_new<-readAAStringSet(alignment, format ='fasta')
-  ali_new<-ali_new[unique(ali_new@ranges@NAMES)]
-  ali_new<-AAMultipleAlignment(ali_new)
+  ali_new<-AAMultipleAlignment(ali2)
   
   #Count diff aa statistic:
   consensus_m<-consensusMatrix(ali_new, as.prob = T)
@@ -138,7 +137,7 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
   #hydrophilic<-toupper(c('n','d', 'q', 'e', 'k', 'r'))
   #hydrophobic<-toupper(c('i', 'v', 'l', 'f', 'c', 'm', 'a', 'w'))
   #neutral<- toupper(c('g', 't', 's', 'y', 'p', 'h'))
-  #�������� ������ � �� �������� �������� ������ NQ
+  #заменить группы и из полярных оставить только NQ
   polar_amyl_aa <- c('N', 'Q')
   aromatic_aa <- c('F', 'W', 'Y')
   hydrophobic_aa <-c('A','L', 'M','I','V')
@@ -171,6 +170,10 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
   ggplot(domain_stat,mapping = aes(x = position, y = name, fill = value)) + geom_tile(height=.9) + 
     scale_fill_viridis_c(name = "",limits = c(0.0,1.0),oob=squish) +  theme_bw()
   ggsave(filename = aa_stat,device = 'pdf', width = 20, height = 4, units = 'cm')
+
+  ggplot(domain_stat_wNA,mapping = aes(x = position, y = name, fill = value)) + geom_tile(height=.9) + 
+    scale_fill_viridis_c(name = "",limits = c(0.0,1.0),oob=squish) +  theme_bw()
+  ggsave(filename = aa_stat_wNA,device = 'pdf', width = 20, height = 4, units = 'cm')
   
   ggplot(comparison_cs,mapping = aes(x = position, y = name, fill = value)) + geom_tile(height=.9) + 
     scale_fill_viridis_c(name = "",limits = c(0.0,1.0),oob=squish) +  theme_bw()
@@ -198,18 +201,5 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
 #cs_output = 'CS_subset_nsp1.tsv',
 #PA_output = 'Report_table_nsp1.tsv',
 #aa_stat = 'Nsp1_aa_stat.pdf',
+##aa_stat_wNA = 'Nsp1_aa_stat_wNA.pdf',
 #cs_aa_out = 'Nsp1_cs_aa.tsv')
-
-
-#Nup100:
-#CS_subset(alignment = 'NUP100_ali_noname_R.fa',
-#          cumscore = 'CumScores.tsv',
- #         taxonomy = 'result_table_all.tsv',
-  #        id = '38I30_nog_orthologs.txt',
-   #       cs_output = 'CS_subset_nup100.tsv',
-    #      PA_output = 'Report_table_nup100.tsv',
-     #     aa_stat = 'Nup100_aa_stat.pdf',
-      #    cs_aa_out = 'Nup100_cs_aa.tsv',
-       #   summary ='Nup100_summary.tsv')
-
-#Убрать в графике красные рамки + сохранять не в автоматическом разрешении
