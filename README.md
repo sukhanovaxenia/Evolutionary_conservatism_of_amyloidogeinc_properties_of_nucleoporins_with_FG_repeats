@@ -112,15 +112,25 @@ inputs:
 outputs:
 
 *'ali_noname_R*.fa - filtered aligment with only IDs and sequences
+
 *'filt_noname_R*.fa' - filtered multifasta
+
 *'ali_stat*.tsv' - amino acid statistics
-*'ali_aa_stat*.pdf'
+
+*'ali_aa_stat*.pdf' - file with the proportions' stat graphic
+
 *'CS_subset*.tsv' - CumScores parametres for each subset
-*'Report_table*.tsv' - 
+
+*'Report_table*.tsv' - number of amyloidogenic sequences for big taxonomy groups of each repetition
+
 *'AA_plot*.pdf' - plots of gained parametres (not including NAs) for all alignments' positions
+
 *'AA_plot_wNA*.pdf' - plots of gained parametres (including NAs) for all alignments' positions
+
 *CS_comp_plot*.pdf' - comparison of amyloidogenicy behaviour depending on the gaps distribution for subsets without anf with NAs
+
 *'Summary_stat*.tsv' - summary of all parametres (not including NAs)
+
 *'Summary_wNA*.isv' - summary of all parametres (including NAs)
 
 
@@ -176,4 +186,4 @@ outputs:
   'table_base.tsv' - table with taxoomy statistics of PA without sequences' IDs
   
   'table_base_ID.tsv' - table with taxoomy statistics of PA with sequences' IDs
-10. nwk_tree_from_table_nsp1 - this script builds trees and count statistics for phylums and also separetly for metazoa and fungi, was used for Nsp1.
+  
