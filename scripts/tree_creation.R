@@ -2,8 +2,7 @@
 #library(dplyr)
 #library(plyr)
 #library(tidyr)
-#install.packages("BiocManager")
-#BiocManager::install("Biostrings")
+#library(Biostrings)
 
 #Building trees for phylums and histograms of PA in classes:
 table_tree<-function(taxid){
