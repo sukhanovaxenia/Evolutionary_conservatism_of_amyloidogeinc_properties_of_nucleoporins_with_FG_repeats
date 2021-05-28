@@ -1,8 +1,7 @@
 #library(dplyr)
 #library(plyr)
 #library(tidyr)
-#install.packages("BiocManager")
-#BiocManager::install("Biostrings")
+#library(Biostrings)
 
 ID_to_sp<-function(fasta,tax,out){
   #fasta-input alignment file
