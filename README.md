@@ -44,7 +44,9 @@ PART 2. Search of regions with conservative amyloid properties
 The MAIN function launch three subfunctions listed below for 10 times.
 
 2.1.1. muscle_refine --- DESCRIPTION in the script filter_plus_alignment.R
+
 2.1.2. aa_stat --- DESCRIPTION in the script ali_aa_statistics_plot_R.R
+
 2.1.3. CS_subset --- DESCRIPTION in the script CS_subset_final.R
 
 MAIN_function - this script unites three previous functions and launch them without any arguments 10 times by your directory (necessary files should be in this directory: 
