@@ -4,7 +4,7 @@ library(tidyr)
 library(dplyr)
 library(seqinr)
 library(stringr)
-
+library(Biostrings)
 
 
 
@@ -52,10 +52,6 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
   cumscor<-cumscor_test[cumscor_test$ID_seq %in% names(ali2),]
   cumscor<-cumscor[match(names(ali2), cumscor$ID_seq),]
   #cumscor2<-apply(cumscor_test[cumscor_test$ID_seq %in% names(ali2),9:ncol(cumscor_test)],1, function(x) x[!is.na(x)])
-  
-  
-  
-  
   
   rearrangeCumScore <- function(CumScore_w_NA, alignment){
     CumScore1 = CumScore_w_NA[!(is.na(CumScore_w_NA))]
