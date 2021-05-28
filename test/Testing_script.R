@@ -2,6 +2,11 @@ library(dplyr)
 library(plyr)
 library(tidyr)
 library(Biostrings)
+library(scales)
+library(ggplot2)
+library(stringr)
+library(muscle)
+library(seqinr)
 
 #The example for Nup2:
 #Step one - get IDs which then will be used for tax_report.txt and phyliptree.phy achieving:
@@ -24,6 +29,7 @@ position_to_column('ali_noname_R2.fa','YLR335W',coord = c(1,51))
 # the function two new coordinates of the structured region
 str_plot(sumfile = 'Summary_wNA2.tsv', start_coord = 1, end_coord = 210, plotfile = 'AA_plot_str2.pdf')
 
+library(ape)
 #Get taxonomy summary and build phylum tree for the whole multifasta file:
 source(file = '../scripts/tree_creation.R', encoding = 'UTF8')
 table_tree('Nup2_tax_ID.tsv')
