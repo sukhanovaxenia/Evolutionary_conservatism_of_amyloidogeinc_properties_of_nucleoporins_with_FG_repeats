@@ -28,11 +28,8 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   tax_rep$primary.taxid<-NULL
   tax_rep$taxname<-as.character(tax_rep$taxname)
   #Добавляем в таблицу с последовательностями названия видов, соотнося id
-  for (i in 1:nrow(df)){
-    if (df[i,1]==tax_rep[i,1]){
-      df[i,4]<-tax_rep[i,2]
-    }
-  }
+  df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
+  df<-df[!duplicated(df$seq_name),]
   
   #Создаем файл для фильтрации (опционально):
   #sequences<-as.list(as.character(df$sequence))
