@@ -20,7 +20,6 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   df$seq_name<-as.character(df$seq_name)
   df<-separate(df, seq_name, c('seq_ID', 'seq_name'),sep='[.]', extra='merge',fill='right')
   df<-df[order(df$seq_ID),]
-  df$species<-NA
   #загружаем полученный tax_report и оставляем только колонки taxid и taxname
   ##ATTENTION: предварительно перед загрузкой надо удалить \t в .txt файле, так как это помешает соединить таблицы
   tax_rep<-read.csv(file, header=T, sep='|')
@@ -30,16 +29,7 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   #Добавляем в таблицу с последовательностями названия видов, соотнося id
   df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
   df<-df[!duplicated(df$seq_name),]
-  
-  #Создаем файл для фильтрации (опционально):
-  #sequences<-as.list(as.character(df$sequence))
-  #name<-as.list(as.character(paste(df$species, df$seq_name, sep=".")))
-  #library(seqinr)
-  #write.fasta(sequences,name,file.out = input,open='w',as.string = T)
-  #Загружаем созданный ранее файл в формате 
-  
-  #input<-readAAStringSet(file=input, format = 'fasta') #path to the file with sequences with changed names
-  
+  names(df)[4]<-'species'
   #Создаем второй df для дальнейшей работы:
   df2<-data.frame(name = df$species, ID = df$seq_name, sequence = df$sequence)
   df2$name<-as.character(df2$name)
