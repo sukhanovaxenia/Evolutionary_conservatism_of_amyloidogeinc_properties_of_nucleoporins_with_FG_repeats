@@ -29,12 +29,15 @@ tax_rep<-read.csv(file=tax_list, header=T, sep='|')
 tax_rep$code<-NULL
 tax_rep$primary.taxid<-NULL
 tax_rep$taxname<-as.character(tax_rep$taxname)
+tax_rep$taxid<-as.character(tax_rep$taxid)
+tax_rep<-tax_rep[order(match(tax_rep$taxid, df$seq_ID)),]
 #Добавляем в таблицу с последовательностями названия видов, соотнося id
 for (i in 1:nrow(df)){
   if (df[i,1]==tax_rep[i,1]){
     df[i,4]<-tax_rep[i,2]
   }
 }
+names(df)[4]<-'species'
 prot<-data.frame(seq_ID=df$seq_name, species=df$species)
 #Создаем файл для выравнивания (опиционально):
 #sequences<-as.list(as.character(df$sequence))
@@ -50,20 +53,16 @@ tax<-read.csv(file=tax_table, header = F, row.names = NULL, fill = T, sep='\t')
 #Если в файле от скрипта Лаврентия в таблице есть 8-ой столбец (ID), то его следует указать в следующем векторе присваивания названий - в противном случае не произойдет присваивание и будет ошибка
 if (ncol(tax)==8){
   tax[,8]<-NULL
-  colnames(tax)<-c('kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species')
+  colnames(tax)<-c('kingdom', 'phylum', 'class', 'order', 'species')
 } else {
-  colnames(tax)<-c('kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species')
+  colnames(tax)<-c('kingdom', 'phylum', 'class', 'order','species')
 }
-
+tax<-tax[-1,]
 
 #Соединяем две таблицы через dplyr:
 tax$species<-as.character(tax$species)
 prot$species<-as.character(prot$species)
 new<-merge(tax, prot, by.x='species', by.y='species', all.y=T, all.x=T)
-new<-new[,c(2,3,4,5,6,7,1,8,9)]
+new<-new[,c(2,3,4,5,6,1)]
 write.table(new,file=tax_w_ID, sep='\t', quote = F, row.names = F)
 }
-
-#tax_ID(input = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NUP100/NUP100_opisto_orthologs.fa', tax_list = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NUP100/tax_report.txt', tax_table = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NUP100/NUP100_result_table.tsv', tax_w_ID = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NUP100/NUP100_tax_ID.tsv')
-
-#tax_ID(input = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/NSP1_opisto_ortho.fa', tax_list = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/tax_report.txt', tax_table = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/NSP1_result_table2.txt', tax_w_ID = 'C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/NSP1_tax_ID.tsv')
