@@ -39,23 +39,10 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   tax_rep$taxname<-as.character(tax_rep$taxname)
   tax_rep<-tax_rep[order(match(tax_rep$taxid,df$seq_ID)),]
   #Добавляем в таблицу с последовательностями названия видов, соотнося id
-  for (i in 1:nrow(df)){
-    if (df[i,1]==tax_rep[i,1]){
-      df[i,4]<-tax_rep[i,2]
-    }
-  }
-  #df$seq_name<-paste(df$species, df$seq_name, sep = '|')
-  #df<-df[,-4]
+  df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
+  df<-df[!duplicated(df$seq_name),]
+  
   print(str(df))
-  #Создаем файл для фильтрации (опционально):
-  #sequences<-as.list(as.character(df$sequence))
-  #name<-as.list(as.character(paste(df$species, df$seq_name, sep=".")))
-  #library(seqinr)
-  #write.fasta(sequences,name,file.out = input,open='w',as.string = T)
-  #Загружаем созданный ранее файл в формате 
-  
-  #input<-readAAStringSet(file=input, format = 'fasta') #path to the file with sequences with changed names
-  
   #Создаем второй df для дальнейшей работы:
   df2<-data.frame(name = df$species, ID = df$seq_name, sequence = df$sequence)
   df2$name<-as.character(df2$name)
@@ -169,7 +156,8 @@ CS_subset<-function(alignment =dir(pattern  ='ali_noname_R.fa'), cumscore = dir(
   ## id - the list of ID's for the analyzing protein (one for all repetitions)
   ## cs_output - cumulative scores for each repetitions;
   ## PA_output - number of amyloidogenic sequences for big taxonomy groups of each repetition
-  ## aa_stat - plots of analyzed parametres for each position in each repetition
+  ## aa_stat - plots of analyzed parametres for each position in each repetition without NAs
+  ## aa_stat_wNA - plots of analyzed parametres for each position in each repetition with NAs
   ## summary - summary of analyzed parametres for subsets withot NAs
   ## CS_comp_plot - comparison plots of amyloidogenicy with and without gaps for each repetition
   ## summary_wNA - summary of parametres for subsets with NAs
