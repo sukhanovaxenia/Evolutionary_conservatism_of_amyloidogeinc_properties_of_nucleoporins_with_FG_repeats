@@ -2,8 +2,7 @@
 #library(dplyr)
 #library(plyr)
 #library(tidyr)
-#install.packages("BiocManager")
-#BiocManager::install("Biostrings")
+#library(Biostrings)
 get_ID<-function(input, output=out){
 #загрузка исходного инпута с базы EggNOG
   ##input - путь к файлу с ортологами с EggNOG в формате .fa
