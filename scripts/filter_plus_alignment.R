@@ -5,14 +5,15 @@ library(seqinr)
 library(tidyr)
 library(dplyr)
 muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(pattern = 'tax_report.txt'), tree = dir(pattern = '*_tax_ID.tsv'), filtered= 'filt.fa', filtered_noname = 'filt_noname.fa', outputpath = 'ali_R.fa', outputpath_noname = 'ali_noname_R.fa'){
-  #fastaFile - фаста с набором последовательностей для белка до замены ID
-  #file - файл с полученным с помощью скрипта Лаврентия таксономическим списком
-  #tree - файл с полной таблицей таксономии
-  #input (optional) - название файла для сохранения фасты с замененными на названия видов ID
-  #filtered - название файла для сохранения отфильтрованной фасты и последующей её подгрузкой (ОБАЗЕТЕЛЕН)
-  #outputpath -название для сохранения файла выравнивания
+  #fastaFile - default multifasta with orthologs sequences (*_opisto_ortho.fa)
+  #file - result_table_all.tsv file gained by Danilov Lavrentyii's python script
+  #tree - full taxonomy table
+  #input (optional) - optional multifile file where sequence IDs are replaced with species' names
+  #filtered - filename for filtered multiple fasta (OBLIGATORY)
+  #outputpath - file name for filtered multiple alignment with sequence labeles 'species's name.sequence ID'
+  #outputpath_noname - file name for filtered multiple alignment with sequence labeles 'sequence ID'
   
-  #Загружаем набор последовательностей для замены ID на названия видов
+  #Load multifasta file for replacing IDs on 'species's name.sequence ID':
   fastaFile <- readAAStringSet(fastaFile)
   seq_name = names(fastaFile)
   sequence = paste(fastaFile)
@@ -20,51 +21,51 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   df$seq_name<-as.character(df$seq_name)
   df<-separate(df, seq_name, c('seq_ID', 'seq_name'),sep='[.]', extra='merge',fill='right')
   df<-df[order(df$seq_ID),]
-  #загружаем полученный tax_report и оставляем только колонки taxid и taxname
-  ##ATTENTION: предварительно перед загрузкой надо удалить \t в .txt файле, так как это помешает соединить таблицы
+  #Import tax_report.txt file
+  ##ATTENTION: all \t should be removed from tax_report.txt file before import, otherwise it would cancel merging
   tax_rep<-read.csv(file, header=T, sep='|')
   tax_rep$code<-NULL
   tax_rep$primary.taxid<-NULL
   tax_rep$taxname<-as.character(tax_rep$taxname)
-  #Добавляем в таблицу с последовательностями названия видов, соотнося id
+  tax_rep<-tax_rep[order(match(tax_rep$taxid,df$seq_ID)),]
+  #Add species' names to the df with sequences merging by sequences' IDs:
   df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
   df<-df[!duplicated(df$seq_name),]
   names(df)[4]<-'species'
-  #Создаем второй df для дальнейшей работы:
+  print(str(df))
+  #СCreating the second the same df for the following work:
   df2<-data.frame(name = df$species, ID = df$seq_name, sequence = df$sequence)
   df2$name<-as.character(df2$name)
-  #Загружаем файл полной таксономии: царство, фила, класс, семейство, род, вид
+  #Load the file with full taxonomy: kingdom, phylum, class, order, species
   tree<-read.table(tree, sep='\t', header = T)
-  #Считаем частоту встречаемость каждого класса - количество последовательностей в классе
+  #Count frequencies of each class - the number of sequences in each of classes:
   freq<-as.data.frame(table(tree$class))
-  #Добавляем информацию об объеме класса в полную таблицу таксономии
+  #Add tha classes' frequencies into the full taxonomy table:
   new<-merge(tree, freq, by.x = 'class', by.y = 'Var1')
-  #new$species<-paste(new$species, new$seq_ID, sep='|')
-  #new<-new[,-8]
-  #Объединяем таксономию с последовательностями
+  #Merge taxonomy with sequences:
   full<-merge(new, df2[,c(1,3)], by.x = 'species', by.y = 'name')
-  #Убираем потворяющиеся значения, возникшие при объединении
-  full[,-c(9,10)]<-lapply(full[,-c(9,10)], factor)
+  #Remove duplications appeared after merging:
+  full[,-c(7,8)]<-lapply(full[,-c(7,8)], factor)
   full2<-full[unique(full$seq_ID),]
-  full2[,c(1,2,3,4,5,6,7)]<-lapply(full2[,c(1,2,3,4,5,6,7)], factor)
-  #Сабсетим только классы, в которых от 3 до 10 (включительно) последовательностей
+  full2[,c(1,2,3,4,5,6)]<-lapply(full2[,c(1,2,3,4,5,6)], factor)
+  #Subsets classes with more than 3 and less than 10 sequences:
   full_3_10<-full2 %>% group_by(class) %>% filter(Freq >3 & Freq <=10)
-  #Сабсетим классы, в которых более 10 последовательносетй:
+  #Subset only classes with more than 10 sequences:
   full_out_10<- full2 %>% group_by(class) %>% filter(Freq >10)
-  #Выбираем случайно 10 последовательностей для классов большими наборами (>10):
+  #Choose randomly 10 sequences for classes's subsets with more than 10 sequences:
   full_out_10<-ddply(full_out_10, .(class), function(x) x[sample(nrow(x),10, replace=T),])
-  #Получаем итоговый df
+  #Get the final df of filtered fasta
   full_ed<-rbind.fill(full_3_10, full_out_10)
   full_ed<-full_ed[duplicated(full_ed$seq_ID)==F,]
-  #Готовим переменные для создания фасты с последующей ее подгрузкой:
+  #Prepare values for filtered multifasta export:
   sequences<-as.list(as.character(full_ed$sequence))
   name<-as.list(as.character(paste(full_ed$species, full_ed$seq_ID, sep=".")))
   write.fasta(sequences,name,file.out = filtered,open='w',as.string = T)
-  #Загружаем ранее созданную фасту для выравнивания
+  #Loading previously filtered multifasta
   ali<-readAAStringSet(filepath = filtered, format = 'fasta')
-  #Сырое выравнивание
+  #Draft muscle alignment
   draft_muscle<-muscle(ali)
-  #Refine выравнивание
+  #Refine alignment
   draft_muscle<-AAStringSet(draft_muscle)
   muscle_refine<-muscle(draft_muscle, refine = T)
   #Экспот результата
@@ -79,13 +80,3 @@ muscle_refine<-function(fastaFile =dir(pattern = '*opisto_ortho.fa'), file=dir(p
   muscle_refine_noname<-AAStringSet(muscle(draft_muscle_noname, refine = T))
   writeXStringSet(muscle_refine_noname, filepath = outputpath_noname, format = 'fasta')
 }
-
-
-#Test for NSP1:
-#muscle_refine(fastaFile = 'NSP1_opisto_ortho.fa',
-#file = "C:/Users/sukha/OneDrive/Документы/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/tax_report.txt", 
-#tree = "C:/Users/sukha/OneDrive/Документы/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/NSP1_tax_ID.tsv",
-#filtered = 'NSP1_filt.fa',
-#filtered_noname = 'NSP1_filt_noname.fa',
-#outputpath = 'NSP1_ali_R.fa',
-#outputpath_noname = 'NSP1_ali_noname_R.fa')
