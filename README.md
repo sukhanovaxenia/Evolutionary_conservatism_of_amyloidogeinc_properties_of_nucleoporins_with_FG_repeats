@@ -16,7 +16,7 @@ Scripts (in the order of the analysis):
 
 **tax_report.txt is loaded using taxid.txt from the resource: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
 
-**result_table_all.tsv is gained by a special private python script, written by Danilov Lavrentyii, and full filled by hand according to the NCBI Taxonomy database
+**result_table_all.tsv is table obtained by parsing of newik tree, downloaded from NCBI Taxonomy database, which was used for all Nups
 
 3. ID_to_species_short_script - is used to change sequences' IDs into species names
 
