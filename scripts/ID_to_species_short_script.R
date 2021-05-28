@@ -1,7 +1,7 @@
-#library(dplyr)
-#library(plyr)
-#library(tidyr)
-#library(Biostrings)
+library(dplyr)
+library(plyr)
+library(tidyr)
+library(Biostrings)
 
 ID_to_sp<-function(fasta,tax,out){
   #fasta-input alignment file
@@ -12,22 +12,19 @@ df <- data.frame(seq_name=names(fastaFile), sequence=paste(fastaFile))
 df$seq_name<-as.character(df$seq_name)
 df<-separate(df, seq_name, c('seq_ID', 'seq_name'),sep='[.]', extra='merge',fill='right')
 df<-df[order(df$seq_ID),]
-df$species<-NA
 
-#загружаем полученный tax_report и оставляем только колонки taxid и taxname
-##ATTENTION: предварительно перед загрузкой надо удалить \t в .txt файле, так как это помешает соединить таблицы
+#Import tax_report.txt file 
+##ATTENTION: all \t should be removed before import
 tax_rep<-read.table(tax, header=T, sep='|')
 tax_rep$code<-NULL
 tax_rep$primary.taxid<-NULL
 tax_rep$taxname<-as.character(tax_rep$taxname)
-#Добавляем в таблицу с последовательностями названия видов, соотнося id
-for (i in 1:nrow(df)){
-  if (df[i,1]==tax_rep[i,1]){
-    df[i,4]<-tax_rep[i,2]
-  }
-}
+#Add species names to sequences merging by IDs:
+df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
+df<-df[!duplicated(df$seq_name),]
+names(df)[4]<-'species'
 
-#Создаем файл для выравнивания (опиционально):
+#Creating multifaste with replaced by species names IDs:
 library(seqinr)
 
 write.fasta(sequences=as.list(as.character(df$sequence)),names=as.list(as.character(paste(df$seq_name, df$species, sep="."))),file.out=out,open='w',as.string = T)
