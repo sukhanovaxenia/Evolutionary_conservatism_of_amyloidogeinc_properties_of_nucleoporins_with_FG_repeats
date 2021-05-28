@@ -161,21 +161,6 @@ outputs:
    *plotfile = 'AA_plot_str*.pdf',the name of the new plot;
 
 9. Step five: tree_creation - this script is used to build phylums trees and get taxonomy statistics of potential amyloids for kingdom, phylum and class
-  1) tax_ID (function) is used to gain kingdom, phylum and class statistic of following parametres: number of proteins, proportion of PA
-   
-   inputs:
-   
-   *input - '*_opisto_ortho.fa', default multifasta of orthologs
-   
-   *tax_list - 'tax_report.txt', the list of species and species IDs included into the alignment
-   
-   *tax_table - 'result_table_all.tsv', right taxonomy gotten from NCBI db for the orthologs' subset (one for all repetitions)
-   
-   output:
-   
-   *tax_w_ID - '*_tax_ID.tsv, output file of the full taxonomy: kingdom, phylum, class, order, seq_ID, species
-  
-  2) table_tree (function):
   
   input:
   
