@@ -44,11 +44,64 @@ PART 2. Search of regions with conservative amyloid properties
 2.1. The MAIN function allows to take a ramdom subset of sequenses, perform two-step multiple alignment, rearrange the amyloidogenic score (Cumulative Score from ArchCandy) and calculate different statistics for each position of the alignment.
 The MAIN function launch three subfunctions listed below for 10 times.
 
-2.1.1. muscle_refine --- DESCRIPTION in the script filter_plus_alignment.R
+2.1.1. muscle_refine --- this function performs filtering and two-step aligning of our multifasta 
 
-2.1.2. aa_stat --- DESCRIPTION in the script ali_aa_statistics_plot_R.R
+input:
 
-2.1.3. CS_subset --- DESCRIPTION in the script CS_subset_final.R
+fastaFile - default multifasta with orthologs sequences (*_opisto_ortho.fa)
+
+file - result_table_all.tsv file gained by Danilov Lavrentyii's python script
+
+tree - full taxonomy table
+
+input (optional) - optional multifile file where sequence IDs are replaced with species' names
+
+filtered - filename for filtered multiple fasta (OBLIGATORY)
+
+output:
+
+outputpath - file name for filtered multiple alignment with sequence labeles 'species's name.sequence ID'
+
+outputpath_noname - file name for filtered multiple alignment with sequence labeles 'sequence ID'
+
+2.1.2. aa_stat --- this function allows to get the amino acid composition:
+
+input:
+
+fasta - alignment file, gained with R function with filtering (filter plus alignment)
+
+output:
+
+stat - filename of the table with aa types proportions through alignment (for each position)
+
+plot - filename of the proportions' stat graphic
+
+2.1.3. CS_subset --- this function count subsetted cumulative scores, aa composition and amyloidogenicy parameteres and builds summary and comparitive plots
+
+input:
+
+alignment - all previously gotten alignment for each repetition are taken by this function;
+
+cumsore - gotten by ArchCandy umulative scores for each sequence in the default orthologs' dataset (one for all repetitions)
+
+taxonomy - right taxonomy gotten from NCBI db for the orthologs' subset (one for all repetitions)
+
+id - the list of ID's for the analyzing protein (one for all repetitions)
+
+output:
+
+cs_output - cumulative scores for each repetitions;
+
+aa_stat - plots of analyzed parametres for each position in each repetition without NAs
+
+aa_stat_wNA - plots of analyzed parametres for each position in each repetition with NAs
+
+summary - summary of analyzed parametres for subsets withot NAs
+
+CS_comp_plot - comparison plots of amyloidogenicy with and without gaps for each repetition
+
+summary_wNA - summary of parametres for subsets with NAs
+
 
 MAIN_function - this script unites three previous functions and launch them without any arguments 10 times by your directory (necessary files should be in this directory: 
 CumScores.tsv, *_opisto_ortho.fa, *_nog_orthologs.txt, result_table_all.tsv, tax_report.txt, taxid.txt, phyliptree.phy, *_tax_ID.tsv
@@ -111,4 +164,33 @@ inputs:
 *end_coord - vector of ending coords of domains
 output:
 *plotfile = 'AA_plot_str*.pdf',the name of the new plot;
-   
+  
+  
+========================================================================
+
+The list of used packages and versions:
+
+dplyr - 1.0.5
+
+plyr - 1.8.6
+
+tidyr - 1.1.3
+
+Biostrings - 2.58.0
+
+scales - 1.1.1
+
+ggplot2 - 3.3.3
+
+stringr - 1.4.0
+
+muscle - 3.32.0
+
+seqinr - 4.2.5
+
+ape - 5.5
+
+viridis - 0.6.1
+
+RColorBrewer - 1.1.2
+
