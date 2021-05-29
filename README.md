@@ -14,7 +14,7 @@ get_ID - this script allows to get IDs of all orthologs sequences in the input a
 *input file - *_opisto_ortho.fa - the multiple alignment of the protein's orthologs from Opistokhonta group
 *output file - 'taxid.txt' - the .txt list of species' taxonomy IDs
 
-1.1.2. Addtion of taxonomy (kingdom, phylum, class) to the IDs
+1.1.2. Addtion of taxonomy (kingdom, phylum, class) to the IDs\n
 tax_ID - this script is used to match full filled taxonomy (filling is made by hand) with sequences' IDs (without taxonomy IDs)
 *input files: input - '*_opisto_ortho.fa', tax_list - 'tax_report.txt', tax_table - 'result_table_all.tsv'
 *output file - '*_tax_ID.tsv', consisting of 6 columns: kingdom, phylum, class, order, seq_ID (unique sequence ID) and species
