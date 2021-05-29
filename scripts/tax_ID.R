@@ -1,16 +1,11 @@
 
-#library(dplyr)
-#library(plyr)
-#library(tidyr)
-#library(Biostrings)
-
 
 tax_ID<-function(input,tax_list,tax_table, tax_w_ID){
   
-  #На следующем сайте: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
-  ##загружаем полученный на прошлом этапе (в скрипте get_ID) список id и выгружаем с сайта .txt файл с id и списком видов
+  #On the following site: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
+  ##load created taxid.txt  (в скрипте get_ID) list and export from the source tax_report.txt file with id and species' list
   
-  #Загружаем исходный файл с ортологами
+  #Import the default multifasta of orthologs *_opisto_ortho.fa:
   
   fastaFile <- readAAStringSet(file=input)
   seq_name = names(fastaFile)
@@ -20,27 +15,21 @@ tax_ID<-function(input,tax_list,tax_table, tax_w_ID){
   df<-separate(df, seq_name, c('seq_ID', 'seq_name'),sep='[.]', extra='merge',fill='right')
   df<-df[order(df$seq_ID),]  
   
-  #загружаем полученный tax_report и оставляем только колонки taxid и taxname
-  ##ATTENTION: предварительно перед загрузкой надо удалить \t в .txt файле, так как это помешает соединить таблицы
+  #Import taxid.txt and tax_report.txt
+  ##ATTENTION: all \t should be removed from tax_report.txt
   tax_rep<-read.csv(file=tax_list, header=T, sep='|')
   tax_rep$code<-NULL
   tax_rep$primary.taxid<-NULL
   tax_rep$taxname<-as.character(tax_rep$taxname)
   tax_rep$taxid<-as.character(tax_rep$taxid)
   tax_rep<-tax_rep[order(match(tax_rep$taxid, df$seq_ID)),]
-  #Добавляем в таблицу с последовательностями названия видов, соотнося id
+  #Merge sequences and species names by IDs:
   df<-merge(df, tax_rep,by.x='seq_ID', by.y = 'taxid')
   df<-df[!duplicated(df$seq_name),]
   names(df)[4]<-'species'
   prot<-data.frame(seq_ID=df$seq_name, species=df$species)
-  #Создаем файл для выравнивания (опиционально):
-  #sequences<-as.list(as.character(df$sequence))
-  #name<-as.list(as.character(paste(df$species, df$seq_name, sep="\t")))
-  #library(seqinr)
-  
-  #write.fasta(sequences,name,file.out='C:/Users/sukha/OneDrive/Рабочий стол/c mac/Documents/Лаборатория/New_amyloids_coaggregation/Nucleoporines/Tree NSP1, NUP100/NSP1/NSP1_opisto_name3.fasta',open='w',as.string = T)
-  
-  #Загружаем файл таксономии, полученный скриптом Лаврентия и выравненный по таксономическим группам вручную в excel :
+ 
+  #Import taxonomy summary achieved by Danilov Lavrentyii's python scropt - result_table_all.tsv:
   
   tax<-read.csv(file=tax_table, header = F, row.names = NULL, fill = T, sep='\t')
   if (ncol(tax)==8){
@@ -51,7 +40,7 @@ tax_ID<-function(input,tax_list,tax_table, tax_w_ID){
   }
   tax<-tax[-1,]
   
-  #Соединяем две таблицы через dplyr:
+  #Merge taxonomy summary table with sequences table by species' names:
   tax$species<-as.character(tax$species)
   prot$species<-as.character(prot$species)
   new<-merge(tax, prot, by.x='species', by.y='species', all.y=T, all.x=T)
