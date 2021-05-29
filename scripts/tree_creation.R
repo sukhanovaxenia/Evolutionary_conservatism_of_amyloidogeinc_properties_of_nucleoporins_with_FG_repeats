@@ -1,12 +1,4 @@
 #Parsing ID according to the taxonomy gotten by Lanvrentyi's script and filled up
-library(dplyr)
-library(plyr)
-library(tidyr)
-library(Biostrings)
-library(viridis) 
-library(RColorBrewer)
-library(ape)
-
 #Building trees for phylums and histograms of PA in classes:
 table_tree<-function(taxid){
 # make a new variable of color IDs
