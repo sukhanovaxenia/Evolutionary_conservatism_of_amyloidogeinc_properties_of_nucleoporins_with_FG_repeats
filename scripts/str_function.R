@@ -1,7 +1,3 @@
-library(tidyr)
-library(dplyr)
-library(ggplot2)
-library(muscle)
 #This script allows to recoordinate found structured domains' coordinates for input protein on the each repetition alignment.
 ##It's needed to "normalize" structured domains' positions on gotten earlier parameteres of the datasets.
 
