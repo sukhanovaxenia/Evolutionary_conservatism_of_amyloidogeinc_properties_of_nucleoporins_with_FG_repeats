@@ -41,7 +41,7 @@ the phylogenetic tree with colorcoded rates of potential amyloids
 
 PART 2. Search of regions with conservative amyloid properties
 
-2.1. The MAIN function allow to take a ramdom subset of sequenses, perform two-step multiple alignment, rearrange the amyloidogenic score (Cumulative Score from ArchCandy) and calculate different statistics for each position of the alignment.
+2.1. The MAIN function allows to take a ramdom subset of sequenses, perform two-step multiple alignment, rearrange the amyloidogenic score (Cumulative Score from ArchCandy) and calculate different statistics for each position of the alignment.
 The MAIN function launch three subfunctions listed below for 10 times.
 
 2.1.1. muscle_refine --- DESCRIPTION in the script filter_plus_alignment.R
