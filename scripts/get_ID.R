@@ -1,8 +1,4 @@
 #For extracting IDs of taxonomic groups:
-library(dplyr)
-library(plyr)
-library(tidyr)
-library(Biostrings)
 
 get_ID<-function(input, output=out){
   ##input - path to the input file *_opisto_ortho.fa from EggNOG
