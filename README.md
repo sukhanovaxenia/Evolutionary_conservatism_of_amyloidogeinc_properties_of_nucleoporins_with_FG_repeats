@@ -97,7 +97,8 @@ CS_comp_plot*.pdf' - comparison of amyloidogenicy behaviour depending on the gap
 2.2. Mapping of structured regions on alignment
 
 2.2.1. str_function - this script allows to reccordinate structure domain coordinates according to each sample alignment and build new plots with painted structure domains
-1) position_to_column (function, the output is shown in the console):
+
+position_to_column (function, the output is shown in the console):
 inputs:
 *alignment - 'ali_noname_R*.fa',the default alignment of the exact repetition; 
 *pat = e.g. 'YOR098C' (for  Nup1), the NCBI ID of the species for which structure were found (ID is written in the file *_str_dom.txt, where * - one of nucleoporins); 
