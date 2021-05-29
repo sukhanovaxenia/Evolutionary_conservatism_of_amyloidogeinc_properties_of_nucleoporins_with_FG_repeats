@@ -1,13 +1,3 @@
-library(muscle)
-library(plyr)
-library(seqinr)
-library(tidyr)
-library(dplyr)
-
-library(scales)
-library(ggplot2)
-library(stringr)
-
 #This sript contains three subfunctions and one SUPER-function which allows to get 10 different subsets of alignments and count for each of them following parametres:
 ##amino acid composition including gaps' composition;
 ##amyloidogenicy;
