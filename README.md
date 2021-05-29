@@ -22,7 +22,7 @@ tax_ID - this script is used to match full filled taxonomy (filling is made by h
 **tax_report.txt is loaded using taxid.txt from the resource: https://www.ncbi.nlm.nih.gov/Taxonomy/TaxIdentifier/tax_identifier.cgi
 **result_table_all.tsv is table obtained by parsing of newik tree, downloaded from NCBI Taxonomy database, which was used for all Nups
 
-1.1.2. Optional. Replacement of species IDs in fasta file with species names.
+1.1.3. Optional. Replacement of species IDs in fasta file with species names.
 ID_to_species_short_script - is used to change sequences' IDs into species names
 **this script isn't obligatory, however was necessary for the manual check of the sequences' quality and tree creation
 *fasta - '*_opisto_ortho.fa', the default multiple alignment 
